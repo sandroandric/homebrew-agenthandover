@@ -1,11 +1,11 @@
 cask "agenthandover" do
-  version "0.4.0"
-  sha256 "4c7c270afd5bac741726b9bc10b30a598f348225a7ea78e7803d3ab7753535df"
+  version "0.5.0"
+  sha256 "0bf106a7c62b1b06836419743d958ce3a79d6e985b206f5428f40830f8c7e70e"
 
   url "https://github.com/sandroandric/AgentHandover/releases/download/v#{version}/AgentHandover-#{version}.pkg",
       verified: "github.com/sandroandric/AgentHandover/"
   name "AgentHandover"
-  desc "Local, privacy-first workflow apprentice that generates AI-executable SOPs"
+  desc "Local, privacy-first app that turns your Mac workflows into Skills for AI agents"
   homepage "https://github.com/sandroandric/AgentHandover"
 
   # AgentHandover uses the signed + notarized .pkg we ship on GitHub releases.
@@ -21,7 +21,7 @@ cask "agenthandover" do
   # all of that by running the exact same signed pkg that release users
   # install, so brew users get bit-identical behavior.
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: ">= :sonoma"
 
   pkg "AgentHandover-#{version}.pkg"
 
@@ -51,11 +51,11 @@ cask "agenthandover" do
       1. Accessibility + Screen Recording permissions (System Settings)
       2. Installing Ollama (opens https://ollama.com/download/mac) or
          `brew install --cask ollama-app` — required for local AI models
-      3. Pulling the Gemma 4 model tier that matches your Mac's RAM
+      3. Pulling the model tier that matches your Mac's RAM
       4. Loading the Chrome extension (optional, for in-browser capture)
 
-    The Gemma 4 tiers use QAT checkpoints that require Ollama 0.30.6 or
-    later.  Install the official Ollama app (the Homebrew `ollama` formula
+    The Gemma 4 tiers (Macs with 24 GB or more) use QAT checkpoints that
+    require Ollama 0.34.0 or later.  Install the official Ollama app (the Homebrew `ollama` formula
     does not bundle the GGUF runner — use `--cask ollama-app` instead).
 
     To connect an agent after onboarding:
